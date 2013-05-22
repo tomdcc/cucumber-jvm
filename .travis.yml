@@ -1,13 +1,16 @@
 language: java
 script: mvn -q clean install
+
 jdk:
 - openjdk7
 - oraclejdk7
+
 matrix:
   # override script for jdk 6 to push snapshots to sonatype
   include:
     jdk: openjdk6
     script: mvn -q clean deploy --settings .travis-settings.xml
+
 # whitelist
 branches:
   only:
