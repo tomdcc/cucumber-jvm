@@ -20,7 +20,7 @@ notifications:
   email:
   - cucumber-test@tomd.cc
 
-
+# sonatype login details
 env:
   global:
   - secure: "Es1i5HBDNgm12nNehUozRmyZzJ8qzQ+yDovlYoH+rNGnQwBAtVwlEYXTD17N\nljf9AKaUKAFgM+xNcUNe6HMnUVAsDut+ssPwKXwN+W1SqlaS4mCWCdgi8NTE\nEPpOZd4m8iy9knCPJ6bErsnNjO4S61Oxgx+oE24SdfNmNqA0NXA="
