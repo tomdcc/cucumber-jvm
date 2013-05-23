@@ -1,9 +1,16 @@
 language: java
 script: mvn -q clean install
+
 jdk:
-  - openjdk6
-  - openjdk7
-  - oraclejdk7
+- openjdk7
+- oraclejdk7
+
+matrix:
+  # override script for jdk 6 to push snapshots to sonatype
+  include:
+    jdk: openjdk6
+    script: mvn -q clean deploy --settings .travis-settings.xml
+
 # whitelist
 branches:
   only:
@@ -11,5 +18,10 @@ branches:
 
 notifications:
   email:
-    - cucumber-test@tomd.cc
+  - cucumber-test@tomd.cc
 
+# sonatype login details
+env:
+  global:
+  - secure: "Es1i5HBDNgm12nNehUozRmyZzJ8qzQ+yDovlYoH+rNGnQwBAtVwlEYXTD17N\nljf9AKaUKAFgM+xNcUNe6HMnUVAsDut+ssPwKXwN+W1SqlaS4mCWCdgi8NTE\nEPpOZd4m8iy9knCPJ6bErsnNjO4S61Oxgx+oE24SdfNmNqA0NXA="
+  - secure: "NPoxhBZKYBh3bBJrUgWuqQgzPoeIIMvZHWzPZi+crYdwJqczYHNyAeNwo4NC\nNi8glXQ17KgvikleRN9TFOaYeTKX8lM2DKkmRi5QXSpJCfdpm5PBlNzIaHgN\nUCDdW8H4GC+3VxHiycyL3qxT42QRlunGHsRLmX0UrHwiLxNAYNU="
