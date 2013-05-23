@@ -14,7 +14,7 @@ matrix:
 # whitelist
 branches:
   only:
-    - travis-sonatype-snapshot-publish-org-shamdata
+    - master
 
 notifications:
   email:
